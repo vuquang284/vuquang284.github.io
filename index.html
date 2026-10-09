@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vu Truong | Mechanical Engineering Portfolio</title>
-  <meta name="description" content="Portfolio of Vu Truong, a Mechanical Engineering student focused on mechanical design, CAD, prototyping, fabrication, hardware integration, and testing." />
+  <meta name="description" content="Portfolio of Vu Truong, a recent Mechanical Engineering graduate focused on mechanical design, CAD, prototyping, fabrication, hardware integration, and testing." />
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/favicon.png" />
+
+  <!-- Link preview (LinkedIn, iMessage, Discord) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vu Truong | Mechanical Engineering Portfolio" />
+  <meta property="og:description" content="Mechanical design, prototyping, hardware integration, and testing: autonomous aircraft, drones, and robots." />
+  <meta property="og:url" content="https://vuquang284.github.io/" />
+  <meta property="og:image" content="https://vuquang284.github.io/assets/muas-drone.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #fff8f2;
-      --card: #fffdfb;
-      --text: #1f2933;
-      --muted: #6f6259;
-      --line: #ead8c8;
-      --accent: #e86f1d;
-      --accent-light: #fff0e6;
-      --shadow: 0 18px 40px rgba(80, 45, 20, 0.10);
+      --paper: #eef1f3;
+      --panel: #f8f9fa;
+      --ink: #1b2127;
+      --steel: #56626d;
+      --rule: #cdd4da;
+      --signal: #f26b1d;
+      --signal-text: #b8470a;
+      --grid: rgba(27, 33, 39, 0.06);
     }
 
     * {
@@ -24,267 +39,303 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: "Archivo", Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
       line-height: 1.6;
     }
 
     a {
       color: inherit;
-      text-decoration: none;
     }
 
-    img {
+    :focus-visible {
+      outline: 2px solid var(--signal);
+      outline-offset: 3px;
+    }
+
+    img,
+    video {
       max-width: 100%;
       display: block;
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1160px, 92%);
       margin: 0 auto;
     }
 
+    /* Header */
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(255, 248, 242, 0.92);
+      background: rgba(238, 241, 243, 0.9);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--rule);
     }
 
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 0;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      height: 80px;
+      padding: 10px 0;
     }
 
     .logo img {
-      height: 80px;
+      height: 72px;
       width: auto;
-      display: block;
-      object-fit: contain;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 28px;
       font-size: 0.95rem;
-      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--steel);
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--ink);
+    }
+
+    .nav-links a[aria-current="true"] {
+      color: var(--ink);
+      text-decoration: underline 2px var(--signal);
+      text-underline-offset: 6px;
+    }
+
+    /* Hero: drafting-sheet grid is the one bold move */
+    .hero-wrap {
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 24px 24px;
+      border-bottom: 1px solid var(--rule);
     }
 
     .hero {
-      padding: 80px 0 55px;
+      padding: 88px 0 80px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 48px;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 56px;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
     h1 {
-      font-size: clamp(2.3rem, 6vw, 4.8rem);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin-bottom: 24px;
+      font-size: clamp(3rem, 9vw, 7rem);
+      font-stretch: 125%;
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 680px;
+    .hero-role {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--signal-text);
       margin-bottom: 26px;
+    }
+
+    .hero p.lede {
+      font-size: 1.08rem;
+      color: var(--steel);
+      max-width: 62ch;
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid var(--text);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid var(--ink);
+      transition: background 0.15s ease, color 0.15s ease;
     }
 
     .button.primary {
-      background: var(--text);
-      color: white;
+      background: var(--ink);
+      color: #fff;
     }
 
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
+    .button.primary:hover {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: var(--ink);
     }
 
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    .button.secondary:hover {
+      background: var(--ink);
+      color: #fff;
     }
 
-    .hero-card {
-      background: var(--card);
-      border-radius: 28px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
+    /* Headshot framed with drawing-sheet corner marks */
+    .hero-frame {
+      position: relative;
+      padding: 14px;
+    }
+
+    .hero-frame::before,
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border: 0 solid var(--signal);
+    }
+
+    .hero-frame::before {
+      top: 0;
+      left: 0;
+      border-top-width: 3px;
+      border-left-width: 3px;
+    }
+
+    .hero-frame::after {
+      bottom: 0;
+      right: 0;
+      border-bottom-width: 3px;
+      border-right-width: 3px;
     }
 
     .hero-image {
       width: 100%;
-      height: 100%;
-      border-radius: 22px;
+      aspect-ratio: 4 / 5;
       object-fit: cover;
+      background: var(--rule);
     }
 
+    /* Sections */
     section {
-      padding: 52px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 24px;
+      padding: 72px 0;
     }
 
     h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      line-height: 1.1;
-      letter-spacing: -0.04em;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-stretch: 115%;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(5, 1fr);
+      border-top: 2px solid var(--ink);
     }
 
-    .skill-card,
-    .project-card,
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    .skill {
+      padding: 22px 22px 0 0;
     }
 
-    .skill-card {
-      padding: 22px;
+    .skill + .skill {
+      padding-left: 22px;
+      border-left: 1px solid var(--rule);
     }
 
-    .skill-card h3 {
+    .skill h3 {
+      font-size: 1.05rem;
       margin-bottom: 8px;
-      font-size: 1rem;
     }
 
-    .skill-card p {
-      color: var(--muted);
+    .skill p {
+      color: var(--steel);
       font-size: 0.95rem;
     }
 
+    /* Projects */
     .projects {
       display: grid;
-      gap: 22px;
+      gap: 40px;
     }
 
     .project-card {
-      overflow: hidden;
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
+      grid-template-columns: 1.1fr 0.9fr;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .project-card:nth-child(even) .project-media {
+      order: 2;
     }
 
     .project-media {
-      min-height: 280px;
-      background: var(--accent-light);
-      padding: 18px;
+      background: var(--rule);
+      overflow: hidden;
       display: grid;
-      align-content: center;
     }
 
     .carousel {
       position: relative;
-      width: 100%;
-      min-height: 320px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 22px;
+      min-height: 420px;
       overflow: hidden;
-      padding: 12px;
+    }
+
+    /* Blurred copy of the current slide fills the space around it */
+    .carousel::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background: var(--backdrop) center / cover no-repeat;
+      filter: blur(28px) saturate(1.2);
+      opacity: 0.55;
+      transition: background-image 0.3s ease;
     }
 
     .carousel-slide {
       display: none;
+      position: absolute;
+      inset: 0;
       width: 100%;
-      max-height: 420px;
-      border-radius: 18px;
-    }
-
-    img.carousel-slide {
+      height: 100%;
       object-fit: contain;
-      padding: 4px;
+      filter: drop-shadow(0 8px 24px rgba(27, 33, 39, 0.25));
     }
 
     .carousel-slide.active {
       display: block;
     }
 
-    video.carousel-slide {
-      background: #000;
-      object-fit: contain;
-    }
-
     .carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border: none;
       border-radius: 50%;
-      background: rgba(31, 41, 51, 0.75);
-      color: white;
-      font-size: 1.1rem;
+      background: rgba(248, 249, 250, 0.88);
+      color: var(--ink);
+      font-size: 1rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       z-index: 2;
+    }
+
+    .carousel-btn:hover {
+      background: var(--signal);
     }
 
     .carousel-btn.prev {
@@ -295,30 +346,151 @@
       right: 12px;
     }
 
-    .carousel-btn:hover {
-      background: rgba(31, 41, 51, 0.9);
+    /* Dot per slide; video slides get a play triangle so visitors know a clip is there */
+    .carousel-dots {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(27, 33, 39, 0.6);
+    }
+
+    .carousel-dots button {
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .carousel-dots button::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+    }
+
+    .carousel-dots button.video::before {
+      width: 0;
+      height: 0;
+      border-radius: 0;
+      background: none;
+      border-style: solid;
+      border-width: 5px 0 5px 9px;
+      border-color: transparent transparent transparent rgba(255, 255, 255, 0.55);
+    }
+
+    .carousel-dots button[aria-current="true"]::before {
+      background: var(--signal);
+    }
+
+    .carousel-dots button.video[aria-current="true"]::before {
+      background: none;
+      border-left-color: var(--signal);
+    }
+
+    .carousel-slide {
+      cursor: zoom-in;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      margin: auto;
+      max-width: 94vw;
+      max-height: 92vh;
+      padding: 0;
+      border: none;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .lightbox::backdrop {
+      background: rgba(27, 33, 39, 0.85);
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox img,
+    .lightbox video {
+      max-width: 94vw;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      border-radius: 4px;
+      cursor: default;
+    }
+
+    .lightbox-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: var(--panel);
+      color: var(--ink);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .lightbox-nav {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(248, 249, 250, 0.9);
+      color: var(--ink);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .lightbox-nav.prev {
+      left: 16px;
+    }
+
+    .lightbox-nav.next {
+      right: 16px;
+    }
+
+    .lightbox-nav:hover,
+    .lightbox-close:hover {
+      background: var(--signal);
     }
 
     .project-content {
-      padding: 28px;
-    }
-
-    .project-content h3 {
-      font-size: 1.45rem;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      padding: 36px;
     }
 
     .meta {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 0.9rem;
+      color: var(--signal-text);
+      font-weight: 600;
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+
+    .project-content h3 {
+      font-size: 1.6rem;
+      font-stretch: 110%;
+      font-weight: 750;
+      line-height: 1.15;
       margin-bottom: 14px;
     }
 
     .project-content p {
-      color: var(--muted);
-      margin-bottom: 16px;
+      color: var(--steel);
+      margin-bottom: 14px;
     }
 
     .tag-row {
@@ -329,17 +501,50 @@
     }
 
     .tag {
-      background: var(--accent-light);
-      color: var(--accent);
-      padding: 6px 10px;
-      border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      padding: 4px 10px;
+      border-radius: 4px;
       font-size: 0.82rem;
-      font-weight: 700;
+      font-weight: 500;
+    }
+
+    .resource-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .resource {
+      display: inline-flex;
+      flex-direction: column;
+      padding: 12px 16px;
+      min-width: 190px;
+      border: 1px solid var(--ink);
+      border-left: 4px solid var(--signal);
+      border-radius: 4px;
+      text-decoration: none;
+      background: #fff;
+      transition: background 0.15s ease;
+    }
+
+    .resource:hover {
+      background: var(--paper);
+    }
+
+    .resource strong {
+      font-size: 0.98rem;
+    }
+
+    .resource span {
+      font-size: 0.82rem;
+      color: var(--steel);
     }
 
     .project-details {
-      margin-top: 22px;
-      border-top: 1px solid var(--line);
+      margin-top: 24px;
+      border-top: 1px solid var(--rule);
       padding-top: 18px;
     }
 
@@ -347,11 +552,9 @@
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      color: var(--accent);
+      gap: 10px;
+      font-weight: 600;
       list-style: none;
-      margin-bottom: 16px;
     }
 
     .project-details summary::-webkit-details-marker {
@@ -360,15 +563,14 @@
 
     .project-details summary::after {
       content: "+";
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: inline-grid;
+      place-items: center;
       width: 22px;
       height: 22px;
-      border-radius: 50%;
-      background: var(--accent-light);
-      color: var(--accent);
+      border-radius: 4px;
+      border: 1px solid var(--ink);
       font-weight: 700;
+      line-height: 1;
     }
 
     .project-details[open] summary::after {
@@ -378,89 +580,181 @@
     .detail-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin: 18px 0;
-    }
-
-    .detail-box {
-      background: #fffaf5;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
+      gap: 24px;
+      margin-top: 18px;
     }
 
     .detail-box h4 {
       margin-bottom: 8px;
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     .detail-box ul {
       padding-left: 18px;
-      color: var(--muted);
+      color: var(--steel);
+      font-size: 0.95rem;
     }
 
     .detail-box li {
       margin-bottom: 6px;
     }
 
-    .resource-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-      flex-wrap: wrap;
+    /* Contact: full-width dark band, angled top edge, drafting grid echoing the hero */
+    #contact {
+      margin-top: 32px;
+      padding: 112px 0 48px;
+      color: #fff;
+      background-color: var(--ink);
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+      clip-path: polygon(0 64px, 100% 0, 100% 100%, 0 100%);
     }
 
-    .pdf-card {
-      min-height: 150px;
-      min-width: 180px;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: var(--accent-light);
-      color: var(--accent);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      font-weight: 500;
-      text-align: center;
-      padding: 18px;
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 56px;
+      align-items: end;
     }
 
-    .pdf-card strong {
-      font-size: 1.1rem;
+    .contact > div {
+      max-width: 56ch;
     }
 
-    .contact-card {
-      padding: 28px;
+    .contact h2 {
+      margin-bottom: 14px;
     }
 
-    .contact-card p {
-      color: var(--muted);
-      margin: 10px 0 18px;
+    .contact p {
+      color: #b9c2ca;
+    }
+
+    /* Contact details styled as a drawing title block */
+    .contact dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      min-width: 340px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-left: 4px solid var(--signal);
+    }
+
+    .contact dt,
+    .contact dd {
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .contact dt:last-of-type,
+    .contact dd:last-of-type {
+      border-bottom: none;
+    }
+
+    .contact dt {
+      color: #b9c2ca;
+      font-size: 0.85rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .contact dd {
+      overflow-wrap: anywhere;
+    }
+
+    .contact dd a {
+      color: #fff;
+      text-decoration-color: var(--signal);
+      text-underline-offset: 3px;
+    }
+
+    .contact .button {
+      border-color: #fff;
+    }
+
+    .contact .button.primary {
+      background: var(--signal);
+      border-color: var(--signal);
+      color: var(--ink);
+    }
+
+    .contact .button.primary:hover {
+      background: #fff;
+      border-color: #fff;
+    }
+
+    .contact .button.secondary {
+      color: #fff;
+    }
+
+    .contact .button.secondary:hover {
+      background: #fff;
+      color: var(--ink);
     }
 
     footer {
-      padding: 36px 0;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      margin-top: 40px;
-      font-size: 0.92rem;
+      margin-top: -1px;
+      padding: 20px 0 28px;
+      background: var(--ink);
+      color: #8b96a0;
+      font-size: 0.85rem;
     }
 
-    @media (max-width: 820px) {
+    footer .container {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding-top: 20px;
+    }
+
+    @media (max-width: 860px) {
       .hero,
       .project-card,
-      .detail-grid {
+      .detail-grid,
+      .contact {
         grid-template-columns: 1fr;
+      }
+
+      .hero-frame {
+        max-width: 340px;
+      }
+
+      .project-card:nth-child(even) .project-media {
+        order: 0;
+      }
+
+      .carousel {
+        min-height: 0;
+        aspect-ratio: 4 / 3;
       }
 
       .skills-grid {
         grid-template-columns: 1fr 1fr;
       }
 
+      .skill,
+      .skill + .skill {
+        padding: 20px 20px 20px 0;
+        border-left: none;
+      }
+
+      .logo img {
+        height: 48px;
+      }
+
       .nav-links {
-        display: none;
+        gap: 16px;
+        font-size: 0.88rem;
+      }
+
+      .project-content {
+        padding: 28px;
+      }
+
+      #contact {
+        padding-top: 72px;
+        clip-path: polygon(0 32px, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .contact dl {
+        min-width: 0;
       }
     }
 
@@ -470,7 +764,13 @@
       }
 
       .hero {
-        padding-top: 52px;
+        padding: 52px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
@@ -480,7 +780,7 @@
   <header>
     <div class="container">
       <nav aria-label="Primary">
-        <a class="logo" href="#top" aria-label="Vu Truong Home">
+        <a class="logo" href="#top" aria-label="Vu Truong home">
           <img src="assets/vt-logo.png" alt="Vu Truong logo" />
         </a>
         <div class="nav-links">
@@ -494,50 +794,52 @@
   </header>
 
   <main id="top">
-    <div class="container hero">
-      <div>
-        <span class="eyebrow">About Me</span>
-        <h1>Vu Truong</h1>
-        <p>
-          I am a Mechanical Engineering student at the University of Maryland with experience in CAD, rapid prototyping,
-          hardware integration, testing, and hands-on problem solving. My work spans mechanical design, real hardware
-          development, and autonomous systems software, including hands-on integration between hardware, sensing,
-          controls, and code. These skills transfer across product development, manufacturing, mechatronics,
-          test engineering, field engineering, and robotics roles.
-        </p>
-        <div class="button-row">
-          <a class="button primary" href="Vu_Truong_Resume.pdf" target="_blank">View Resume</a>
-          <a class="button secondary" href="mailto:vuqtruongedu@gmail.com">Email Me</a>
+    <div class="hero-wrap">
+      <div class="container hero">
+        <div>
+          <h1>Vu Truong</h1>
+          <p class="hero-role">B.S. Mechanical Engineering | University of Maryland, College Park</p>
+          <p class="lede">
+            I design, build, and test real hardware, from autonomous aircraft and wildfire-response drones to a
+            snow-clearing robot. My work spans CAD, rapid prototyping, and hardware integration, through to the
+            autonomy software that makes these systems fly and drive.
+          </p>
+          <div class="button-row">
+            <a class="button primary" href="Vu_Truong_Resume.pdf" target="_blank" rel="noopener">View resume</a>
+            <a class="button secondary" href="#projects">See projects</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-card">
-        <img src="assets/Headshot.png" alt="Vu Truong headshot" class="hero-image" />
+        <div class="hero-frame">
+          <img src="assets/Headshot.jpg" alt="Vu Truong headshot" class="hero-image" />
+        </div>
       </div>
     </div>
 
     <section id="skills">
       <div class="container">
-        <div class="section-heading">
-          <h2>Core Skills</h2>
-        </div>
+        <h2>Core skills</h2>
 
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill">
             <h3>Mechanical Design</h3>
-            <p>CAD, component design, assemblies, fit checks, design iteration, and prototype development.</p>
+            <p>CAD in Fusion 360 and SolidWorks, component design, assemblies, fit checks, design iteration, and prototype development.</p>
           </div>
-          <div class="skill-card">
+          <div class="skill">
             <h3>Prototyping</h3>
             <p>3D printing, soldering, wiring, assembly, fit-checking, and hands-on testing of prototype hardware.</p>
           </div>
-          <div class="skill-card">
+          <div class="skill">
             <h3>Systems &amp; Testing</h3>
             <p>Subsystem integration, bench testing, field testing, troubleshooting, documentation, and iterative improvement.</p>
           </div>
-          <div class="skill-card">
+          <div class="skill">
             <h3>Hardware Integration</h3>
             <p>Mechanical assemblies, electrical hardware, sensors, wiring, packaging, troubleshooting, and system-level fitment.</p>
+          </div>
+          <div class="skill">
+            <h3>Software &amp; Autonomy</h3>
+            <p>Python, C++, ROS 2, PX4, ArduPilot, SITL simulation, YOLO object detection, and ground-station GUIs.</p>
           </div>
         </div>
       </div>
@@ -545,63 +847,83 @@
 
     <section id="projects">
       <div class="container">
-        <div class="section-heading">
-          <h2>Projects</h2>
-        </div>
+        <h2>Projects</h2>
 
         <div class="projects">
           <article class="project-card" id="muas">
             <div class="project-media">
               <div class="carousel">
                 <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
-                <img src="assets/muas-photo-1-placeholder.jpg" alt="Main aircraft photo" class="carousel-slide active" />
-                <img src="assets/muas-photo-2-placeholder.jpg" alt="CAD / airframe screenshot" class="carousel-slide" />
-                <img src="assets/muas-photo-3-placeholder.jpg" alt="Assembly / wiring photo" class="carousel-slide" />
-                <video src="assets/muas-video-placeholder.mp4" poster="assets/muas-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
-                  Your browser does not support embedded video.
-                </video>
+                <img src="assets/muas-drone.jpg" alt="MUAS fixed-wing VTOL aircraft on a launch stand" class="carousel-slide active" />
+                <img src="assets/muas-fuselage-cad-2.png" alt="CAD model of the MUAS fuselage, isometric view showing internal component layout" class="carousel-slide" loading="lazy" />
+                <img src="assets/muas-fuselage-cad.png" alt="CAD model of the MUAS fuselage, top view showing component packaging" class="carousel-slide" loading="lazy" />
+                <img src="assets/muas-drone-avionics.jpg" alt="MUAS aircraft avionics bay with flight controller and wiring installed" class="carousel-slide" loading="lazy" />
+                <img src="assets/muas-drone-top-angled.jpg" alt="MUAS aircraft from above, resting on grass" class="carousel-slide" loading="lazy" />
+                <img src="assets/muas-drone-land.jpg" alt="MUAS aircraft landing on the field" class="carousel-slide" loading="lazy" />
+                <video src="assets/muas-bungee-launch.mp4" poster="assets/muas-bungee-launch-poster.jpg" class="carousel-slide" muted loop playsinline preload="metadata" aria-label="Bungee launch of the MUAS aircraft"></video>
+                <video src="assets/muas-payload-drop.mp4" poster="assets/muas-payload-drop-poster.jpg" class="carousel-slide" muted loop playsinline preload="metadata" aria-label="MUAS aircraft performing a payload drop"></video>
+                <img src="assets/muas-yolo-mavlink-gui.webp" alt="Ground station GUI showing YOLO object detection and MAVLink telemetry" class="carousel-slide" loading="lazy" />
                 <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots"></div>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">Maryland Unmanned Aerial Systems | Team Captain</div>
+              <div class="meta">Maryland Unmanned Aerial Systems, Team Captain | Aug 2024 – Sept 2026</div>
               <h3>Autonomous Aircraft Development for RoboNation SUAS</h3>
               <p>
-                Lead work with Maryland Unmanned Aerial Systems, a student engineering team developing an autonomous aircraft for the RoboNation SUAS competition. Responsibilities include coordinating technical progress, supporting mechanical and airframe work, and helping connect mechanical, electrical, and software subteam efforts.
+                I led technical development efforts for Maryland Unmanned Aerial Systems (MUAS), a student engineering team designing and developing autonomous aircraft for the RoboNation Student Unmanned Aerial Systems (SUAS) Competition.
               </p>
               <p>
-                The project involves real hardware development, mechanical packaging constraints, payload considerations, sensor integration, documentation, and testing preparation.
+                My responsibilities included coordinating development across mechanical, electrical, and software subteams, contributing to airframe design and mechanical integration, and supporting payload integration, sensor selection, technical documentation, and flight testing.
+              </p>
+              <p>
+                On the software side, I trained the team's custom YOLO26 object-detection model to identify mission targets during autonomous search operations. I also developed a ground station GUI that integrates real-time object detection with live video monitoring, target location tracking, and operator review and confirmation to support mission execution.
               </p>
               <div class="tag-row">
                 <span class="tag">CAD</span>
                 <span class="tag">Airframe</span>
                 <span class="tag">Hardware Integration</span>
                 <span class="tag">Autonomous Systems</span>
+                <span class="tag">YOLO</span>
+                <span class="tag">Computer Vision</span>
                 <span class="tag">Team Leadership</span>
               </div>
 
+              <div class="resource-row">
+                <a href="assets/TDR_MarylandUAS_SUAS2026.pdf" target="_blank" rel="noopener" class="resource">
+                  <strong>SUAS 2026 Technical Design Report</strong>
+                  <span>Open PDF</span>
+                </a>
+                <a href="https://muas.umd.edu" target="_blank" rel="noopener" class="resource">
+                  <strong>Team website</strong>
+                  <span>muas.umd.edu</span>
+                </a>
+              </div>
+
               <details class="project-details">
-                <summary>View project details</summary>
-                <p>
-                  MUAS is a student-run engineering team focused on designing, building, integrating, and testing a competition aircraft for the RoboNation SUAS competition. My work spans technical leadership, mechanical planning, subsystem coordination, integration support, and helping the team move from design decisions to real hardware.
-                </p>
+                <summary>Project details</summary>
                 <div class="detail-grid">
                   <div class="detail-box">
-                    <h4>My Role</h4>
+                    <h4>My role</h4>
                     <ul>
-                      <li>Coordinate weekly technical progress across mechanical, electrical, and software efforts.</li>
-                      <li>Support airframe configuration decisions and hardware integration planning.</li>
-                      <li>Help translate competition requirements into aircraft subsystem priorities.</li>
-                      <li>Work with team members on fit checks, assembly planning, testing readiness, and documentation.</li>
+                      <li>Coordinated weekly technical progress across mechanical, electrical, and software efforts.</li>
+                      <li>Supported airframe configuration decisions and hardware integration planning.</li>
+                      <li>Helped translate competition requirements into aircraft subsystem priorities.</li>
+                      <li>Worked with team members on fit checks, assembly planning, testing readiness, and documentation.</li>
+                      <li>Designed the fuselage's internal mounting system, packaging all electronics, cooling fans, and the nose-mounted camera into the available space.</li>
+                      <li>Helped redesign the 3D-printed landing skids to better withstand landing loads.</li>
+                      <li>Trained the custom YOLO26 model that detects mission targets in the aircraft's live camera feed.</li>
+                      <li>Developed the ground station GUI combining real-time detection with live video, target location tracking, and operator review and confirmation.</li>
                     </ul>
                   </div>
                   <div class="detail-box">
-                    <h4>Relevant Skills</h4>
+                    <h4>Relevant skills</h4>
                     <ul>
                       <li>Mechanical design and CAD-based iteration.</li>
                       <li>Subsystem integration and packaging constraints.</li>
                       <li>Test planning, documentation, and field-readiness preparation.</li>
                       <li>Technical communication across multidisciplinary teams.</li>
+                      <li>Computer vision model training and ground-station software development.</li>
                     </ul>
                   </div>
                 </div>
@@ -613,54 +935,49 @@
             <div class="project-media">
               <div class="carousel">
                 <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
-                <img src="assets/xfire1.jpg" alt="Suppression drone / payload photo" class="carousel-slide active" />
-                <img src="assets/crossfire-photo-2-placeholder.jpg" alt="Payload / mechanism photo" class="carousel-slide" />
-                <img src="assets/crossfire-photo-3-placeholder.jpg" alt="Testing / field photo" class="carousel-slide" />
-                <video src="assets/crossfire-video-placeholder.mp4" poster="assets/crossfire-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
-                  Your browser does not support embedded video.
-                </video>
+                <img src="assets/xfire1.jpg" alt="Crossfire suppression drone with payload on the field" class="carousel-slide active" />
+                <img src="assets/xfire2.jpg" alt="Crossfire drone in flight during a field test" class="carousel-slide" loading="lazy" />
+                <img src="assets/xfire3.webp" alt="Crossfire field test with a team member observing the drone" class="carousel-slide" loading="lazy" />
                 <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots"></div>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">UMD xFoundry Crossfire | Wildfire Response</div>
+              <div class="meta">UMD xFoundry Crossfire | Aug 2025 – May 2026</div>
               <h3>Autonomous Drone Development for Wildfire Response</h3>
               <p>
-                Worked as part of the Crossfire team on hardware and system development for wildfire response applications. The project involves integrating mechanical hardware, sensing, autonomy, and payload concepts into a system intended to operate in real field conditions.
+                As part of the Crossfire team, I worked on developing an autonomous wildfire suppression system using the Freefly Alta X drone. My primary responsibility was developing the autonomous mission logic using ROS 2 and PX4, allowing the suppression drone to receive target coordinates from a separate fire detection drone, autonomously navigate to identified fire locations, and execute payload deployment procedures.
               </p>
               <p>
-                This work strengthened my experience with mechanical integration, payload concepts, field-focused design, testing preparation, and coordination across mechanical, electrical, software, and perception-related requirements.
+                I also utilized PX4 Software-in-the-Loop (SITL) simulation to develop, test, and refine autonomous flight behaviors and mission sequences before deployment on physical hardware. This work provided hands-on experience with UAV autonomy, ROS 2 integration, flight control systems, and simulation-based validation.
               </p>
               <div class="tag-row">
                 <span class="tag">PX4</span>
-                <span class="tag">ROS2</span>
-                <span class="tag">Payload Design</span>
-                <span class="tag">Field Testing</span>
-                <span class="tag">Hardware Integration</span>
+                <span class="tag">ROS 2</span>
+                <span class="tag">SITL Simulation</span>
+                <span class="tag">Mission Planning</span>
+                <span class="tag">UAV Autonomy</span>
               </div>
 
               <details class="project-details">
-                <summary>View project details</summary>
-                <p>
-                  Crossfire is focused on wildfire response technology, combining hardware, sensing, autonomy, and payload deployment concepts. My contribution is centered around connecting mechanical hardware decisions with system-level requirements, testing needs, and practical integration constraints.
-                </p>
+                <summary>Project details</summary>
                 <div class="detail-grid">
                   <div class="detail-box">
-                    <h4>My Role</h4>
+                    <h4>My role</h4>
                     <ul>
-                      <li>Support mechanical integration for payload-related and system hardware.</li>
-                      <li>Work with sensing, autonomy, and packaging requirements when considering hardware layout.</li>
-                      <li>Assist with system-level planning for deployment, testing, and operation in field conditions.</li>
-                      <li>Contribute to testing preparation and practical design decisions around real hardware constraints.</li>
+                      <li>Developed the autonomous mission logic for the Freefly Alta X suppression drone using ROS 2 and PX4.</li>
+                      <li>Handled target coordinates received from a separate fire detection drone and navigation to each identified fire location.</li>
+                      <li>Built the payload deployment sequence executed once the drone reaches a target.</li>
+                      <li>Used PX4 SITL simulation to develop, test, and refine flight behaviors and mission sequences before flying on hardware.</li>
                     </ul>
                   </div>
                   <div class="detail-box">
-                    <h4>Relevant Skills</h4>
+                    <h4>Relevant skills</h4>
                     <ul>
-                      <li>System integration across mechanical, electrical, and software requirements.</li>
-                      <li>Payload integration and mechanical packaging.</li>
-                      <li>Field testing mindset for systems operating outside lab conditions.</li>
-                      <li>Cross-functional collaboration with software, perception, and hardware contributors.</li>
+                      <li>ROS 2 development and PX4 integration.</li>
+                      <li>Autonomous mission planning and coordination between multiple drones.</li>
+                      <li>Simulation-based validation with PX4 SITL.</li>
+
                     </ul>
                   </div>
                 </div>
@@ -668,27 +985,26 @@
             </div>
           </article>
 
-          <article class="project-card" id="prototyping">
+          <article class="project-card" id="frostbyte">
             <div class="project-media">
               <div class="carousel">
                 <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
-                <img src="assets/fb1.jpg" alt="Main robot / system photo" class="carousel-slide active" />
-                <img src="assets/fb2.jpg" alt="CAD / chassis screenshot" class="carousel-slide" />
-                <img src="assets/frostbyte-photo-3-placeholder.jpg" alt="Assembly / subsystem photo" class="carousel-slide" />
-                <video src="assets/frostbyte-video-placeholder.mp4" poster="assets/frostbyte-video-poster-placeholder.jpg" class="carousel-slide" controls preload="none">
-                  Your browser does not support embedded video.
-                </video>
+                <img src="assets/fb1.jpg" alt="FrostByte tracked robot with plow blade in the lab" class="carousel-slide active" />
+                <img src="assets/fb2.jpg" alt="FrostByte chassis and electronics, top view" class="carousel-slide" loading="lazy" />
+                <video src="assets/fb.mp4" poster="assets/fb-poster.jpg" class="carousel-slide" muted loop playsinline preload="metadata" aria-label="FrostByte clearing snow on a sidewalk"></video>
+                <img src="assets/fb3.jpg" alt="FrostByte senior design poster" class="carousel-slide" loading="lazy" />
                 <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots"></div>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">Senior Design Capstone Project Aug - Dec 2025</div>
-              <h3>FrostByte | Autonomous Snow Removal Robot</h3>
+              <div class="meta">Senior Design Capstone | Aug – Dec 2025</div>
+              <h3>FrostByte: Autonomous Snow Removal Robot</h3>
               <p>
-                FrostByte is a senior design capstone project focused on developing an autonomous sidewalk snow removal robot. My work has mainly focused on hardware integration and testing, including bringing together the drivetrain, sensors, power system, and control hardware into a working platform.
+                FrostByte is a senior design capstone project focused on developing an autonomous sidewalk snow removal robot. My primary responsibilities included hardware and software integration, system development, and testing, bringing together the drivetrain, sensors, power distribution, and control electronics into a functional platform.
               </p>
               <p>
-                I have also been working with ArduPilot for the robot’s autonomy stack, helping connect hardware and software so the system can support navigation, control, and real-world testing in outdoor conditions.
+                I also worked on integrating ArduPilot Rover into the robot's autonomy stack, bridging hardware and software to support autonomous navigation, motion control, and real-world testing in outdoor environments.
               </p>
               <div class="tag-row">
                 <span class="tag">ArduPilot</span>
@@ -699,13 +1015,10 @@
               </div>
 
               <details class="project-details">
-                <summary>View project details</summary>
-                <p>
-                  FrostByte is a senior design capstone project centered on building an autonomous snow removal robot for sidewalk clearing. My main contributions have been in hardware integration and testing, including assembling and connecting the robot’s subsystems and working with ArduPilot to support autonomous operation.
-                </p>
+                <summary>Project details</summary>
                 <div class="detail-grid">
                   <div class="detail-box">
-                    <h4>My Role</h4>
+                    <h4>My role</h4>
                     <ul>
                       <li>Integrated drivetrain, power, control, and sensing hardware into the robot platform.</li>
                       <li>Worked with ArduPilot to support the robot’s autonomy, control, and system communication.</li>
@@ -714,7 +1027,7 @@
                     </ul>
                   </div>
                   <div class="detail-box">
-                    <h4>Transferable Skills</h4>
+                    <h4>Relevant skills</h4>
                     <ul>
                       <li>Hardware integration across mechanical, electrical, and control systems.</li>
                       <li>Hands-on testing and troubleshooting of real robotic hardware.</li>
@@ -727,20 +1040,21 @@
             </div>
           </article>
 
-          <article class="project-card" id="integration">
+          <article class="project-card" id="bozopad">
             <div class="project-media">
               <div class="carousel">
                 <button class="carousel-btn prev" type="button" onclick="moveSlide(this, -1)" aria-label="Previous slide">&#10094;</button>
-                <img src="assets/Bozopad_Complete.PNG" alt="Complete BOZOPAD" class="carousel-slide active" />
-                <img src="assets/Bozopad_PCB.PNG" alt="BOZOPAD PCB" class="carousel-slide" />
+                <img src="assets/Bozopad_Complete.PNG" alt="Completed BOZOPAD macropad" class="carousel-slide active" />
+                <img src="assets/Bozopad_PCB.PNG" alt="BOZOPAD PCB layout" class="carousel-slide" loading="lazy" />
                 <button class="carousel-btn next" type="button" onclick="moveSlide(this, 1)" aria-label="Next slide">&#10095;</button>
+                <div class="carousel-dots"></div>
               </div>
             </div>
             <div class="project-content">
-              <div class="meta">Personal Project - Dec 2022</div>
-              <h3>//BOZOPAD//</h3>
+              <div class="meta">Personal Project | Dec 2022</div>
+              <h3>BOZOPAD Macropad</h3>
               <p>
-                BOZOPAD was a personal hardware project focused on designing a small, functional input device from the ground up. The project included PCB design, firmware setup, enclosure design, soldering, assembly, and testing.
+                BOZOPAD was a personal hardware project focused on designing a small, functional input device from the ground up: a custom 4x3 macropad with a through-hole PCB, QMK firmware, and a housing enclosure. The project included PCB design, firmware setup, enclosure design, soldering, assembly, and testing.
               </p>
               <p>
                 This project helped me practice the full hardware development process, from design and part selection to assembly, testing, troubleshooting, and documentation.
@@ -752,14 +1066,18 @@
                 <span class="tag">Firmware</span>
               </div>
 
+              <div class="resource-row">
+                <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" rel="noopener" class="resource">
+                  <strong>Assembly instructions</strong>
+                  <span>Open PDF</span>
+                </a>
+              </div>
+
               <details class="project-details">
-                <summary>View project details</summary>
-                <p>
-                  Designed and built a custom 4x3 macropad, including a through-hole PCB, firmware (QMK), and a housing enclosure. Co-developed assembly documentation to support the build process.
-                </p>
+                <summary>Project details</summary>
                 <div class="detail-grid">
                   <div class="detail-box">
-                    <h4>My Role</h4>
+                    <h4>My role</h4>
                     <ul>
                       <li>Designed the through-hole PCB in KiCAD.</li>
                       <li>Set up and tested QMK firmware for the macropad layout.</li>
@@ -768,7 +1086,7 @@
                     </ul>
                   </div>
                   <div class="detail-box">
-                    <h4>Transferable Skills</h4>
+                    <h4>Relevant skills</h4>
                     <ul>
                       <li>PCB design and electronics assembly.</li>
                       <li>Firmware setup and hardware troubleshooting.</li>
@@ -776,12 +1094,6 @@
                       <li>Documenting a build process clearly for others to follow.</li>
                     </ul>
                   </div>
-                </div>
-                <div class="resource-row">
-                  <a href="assets/MKC_Bozopad_Guide.pdf" target="_blank" rel="noopener noreferrer" class="pdf-card">
-                    <strong>Assembly Instructions</strong>
-                    <span>View PDF</span>
-                  </a>
                 </div>
               </details>
             </div>
@@ -792,47 +1104,144 @@
 
     <section id="contact">
       <div class="container">
-        <div class="contact-card">
-          <h2>Contact</h2>
-          <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware and software integration roles.</p>
-          <p><strong>Email:</strong> <a href="mailto:vuqtruongedu@gmail.com">vuqtruongedu@gmail.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vu-qtruong/" target="_blank">linkedin.com/in/vu-qtruong</a></p>
-          <p><strong>Location:</strong> Silver Spring, MD</p>
-          <div class="button-row">
-            <a class="button primary" href="mailto:vuqtruongedu@gmail.com">Get in Touch</a>
-            <a class="button secondary" href="Vu_Truong_Resume.pdf" target="_blank">Resume</a>
+        <div class="contact">
+          <div>
+            <h2>Contact</h2>
+            <p>Interested in mechanical design, product development, prototyping, manufacturing, test engineering, mechatronics, robotics, and hardware and software integration roles.</p>
+            <div class="button-row">
+              <a class="button primary" href="mailto:vuqtruongedu@gmail.com">Email me</a>
+              <a class="button secondary" href="Vu_Truong_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+            </div>
           </div>
+          <dl>
+            <dt>Email</dt>
+            <dd><a href="mailto:vuqtruongedu@gmail.com">vuqtruongedu@gmail.com</a></dd>
+            <dt>LinkedIn</dt>
+            <dd><a href="https://www.linkedin.com/in/vu-qtruong/" target="_blank" rel="noopener">linkedin.com/in/vu-qtruong</a></dd>
+            <dt>Location</dt>
+            <dd>Silver Spring, MD</dd>
+          </dl>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © 2026 Vu Truong
-    </div>
+    <div class="container">© 2026 Vu Truong</div>
   </footer>
 
+  <dialog class="lightbox" aria-label="Enlarged media">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous slide">&#10094;</button>
+    <button class="lightbox-nav next" type="button" aria-label="Next slide">&#10095;</button>
+  </dialog>
+
   <script>
+    // Show one slide, play it if it's a video, pause the rest.
+    function showSlide(carousel, index) {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      index = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        if (i === index) carousel.style.setProperty('--backdrop', `url("${slide.poster || slide.src}")`);
+        if (slide.tagName === 'VIDEO') i === index ? slide.play() : slide.pause();
+      });
+      carousel.querySelectorAll('.carousel-dots button').forEach((dot, i) => dot.setAttribute('aria-current', i === index));
+    }
+
     function moveSlide(button, direction) {
       const carousel = button.parentElement;
-      const slides = carousel.querySelectorAll('.carousel-slide');
-      let currentIndex = 0;
-
-      slides.forEach((slide, index) => {
-        if (slide.classList.contains('active')) {
-          currentIndex = index;
-        }
-      });
-
-      slides[currentIndex].classList.remove('active');
-
-      let newIndex = currentIndex + direction;
-      if (newIndex < 0) newIndex = slides.length - 1;
-      if (newIndex >= slides.length) newIndex = 0;
-
-      slides[newIndex].classList.add('active');
+      const slides = [...carousel.querySelectorAll('.carousel-slide')];
+      const current = slides.findIndex(slide => slide.classList.contains('active'));
+      showSlide(carousel, current + direction);
     }
+
+    // Highlight the menu link for the section currently under the header.
+    const navLinks = [...document.querySelectorAll('.nav-links a')];
+
+    function updateNav() {
+      const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 2;
+      const current = atBottom ? navLinks.at(-1) : navLinks.findLast(link =>
+        document.querySelector(link.getAttribute('href')).getBoundingClientRect().top <= innerHeight * 0.35);
+      navLinks.forEach(link => link.setAttribute('aria-current', link === current));
+    }
+
+    addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      slides.forEach((slide, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = slide.tagName === 'VIDEO' ? 'video' : '';
+        dot.setAttribute('aria-label', `${slide.tagName === 'VIDEO' ? 'Video' : 'Photo'} ${i + 1} of ${slides.length}`);
+        dot.addEventListener('click', () => showSlide(carousel, i));
+        carousel.querySelector('.carousel-dots').append(dot);
+      });
+      showSlide(carousel, 0);
+    });
+
+    // Horizontal swipe calls back with -1 (previous) or 1 (next); vertical drags are left to scrolling.
+    function onSwipe(el, callback) {
+      let x, y;
+      el.addEventListener('touchstart', e => ({ clientX: x, clientY: y } = e.touches[0]), { passive: true });
+      el.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - x;
+        const dy = e.changedTouches[0].clientY - y;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) callback(dx < 0 ? 1 : -1);
+      });
+    }
+
+    document.querySelectorAll('.carousel').forEach(carousel =>
+      onSwipe(carousel, direction => moveSlide(carousel.querySelector('.carousel-btn'), direction)));
+
+    // Click (or Enter) on a slide opens it full size; click outside, × or Esc closes.
+    const lightbox = document.querySelector('.lightbox');
+
+    let lightboxSlide;
+
+    function openLightbox(slide) {
+      lightboxSlide = slide;
+      lightbox.querySelector('img, video')?.remove();
+      const big = slide.cloneNode();
+      big.className = '';
+      big.removeAttribute('loading');
+      if (big.tagName === 'VIDEO') {
+        big.controls = true;
+        big.muted = true;
+        big.autoplay = true;
+        big.currentTime = slide.currentTime;
+      }
+      lightbox.append(big);
+      if (!lightbox.open) lightbox.showModal();
+    }
+
+    document.querySelectorAll('.carousel-slide').forEach(slide => {
+      slide.tabIndex = 0;
+      slide.addEventListener('click', () => openLightbox(slide));
+      slide.addEventListener('keydown', e => { if (e.key === 'Enter') openLightbox(slide); });
+    });
+
+    // Step through the same project's slides, keeping the small carousel in sync.
+    function stepLightbox(direction) {
+      const carousel = lightboxSlide.parentElement;
+      moveSlide(carousel.querySelector('.carousel-btn'), direction);
+      openLightbox(carousel.querySelector('.carousel-slide.active'));
+    }
+
+    lightbox.querySelector('.lightbox-nav.prev').addEventListener('click', () => stepLightbox(-1));
+    lightbox.querySelector('.lightbox-nav.next').addEventListener('click', () => stepLightbox(1));
+    onSwipe(lightbox, stepLightbox);
+    lightbox.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') stepLightbox(-1);
+      if (e.key === 'ArrowRight') stepLightbox(1);
+    });
+
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-close')) lightbox.close();
+    });
+    lightbox.addEventListener('close', () => lightbox.querySelector('img, video')?.remove());
   </script>
 </body>
 </html>
